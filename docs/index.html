@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Receita e desempenho no Brasileirão (2007-2024)</title>
+<style>
+  body {
+    margin: 0;
+    background: #f2f4f8;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #222;
+    line-height: 1.7;
+  }
+  .artigo {
+    max-width: 820px;
+    margin: 30px auto;
+    background: white;
+    padding: 50px 60px;
+    border-radius: 8px;
+    border: 1px solid #dde2ea;
+  }
+  h1, h2, h3, .autores, .resumo, .sumario, figcaption, table, .botao, .fair {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  h1 { color: #1f3a68; font-size: 30px; line-height: 1.3; margin-top: 0; }
+  h2 { color: #1f3a68; font-size: 22px; margin-top: 45px; border-bottom: 1px solid #dde2ea; padding-bottom: 6px; }
+  h3 { color: #1f3a68; font-size: 18px; margin-top: 30px; }
+  p { text-align: justify; }
+  .autores { font-weight: bold; font-size: 15px; margin-bottom: 4px; }
+  .info { font-style: italic; color: #555; font-size: 15px; margin: 0; }
+  .badges { margin: 18px 0; }
+  .badges img { margin-right: 4px; }
+  .botao {
+    display: inline-block;
+    padding: 8px 14px;
+    border: 1px solid #c5d0e0;
+    border-radius: 5px;
+    background: #f6f8fb;
+    color: #1f3a68;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .resumo {
+    background: #f6f8fb;
+    border-left: 4px solid #1f4e8c;
+    padding: 18px 24px;
+    margin-top: 30px;
+    font-size: 15px;
+  }
+  .resumo h2 { margin-top: 0; border: none; font-size: 16px; text-transform: uppercase; }
+  .sumario { border: 1px solid #dde2ea; border-radius: 6px; padding: 14px 24px; margin-top: 25px; font-size: 15px; }
+  .sumario a { color: #222; text-decoration: none; }
+  pre {
+    background: #f1f3f6;
+    border: 1px solid #dde2ea;
+    border-radius: 6px;
+    padding: 14px;
+    overflow-x: auto;
+    font-size: 13px;
+  }
+  code { font-family: Consolas, monospace; background: #f1f3f6; padding: 1px 4px; border-radius: 3px; font-size: 14px; }
+  pre code { padding: 0; }
+  figure { margin: 30px 0; }
+  figure img { width: 100%; border: 1px solid #dde2ea; border-radius: 6px; }
+  iframe { width: 100%; height: 480px; border: 1px solid #dde2ea; border-radius: 6px; }
+  figcaption { font-size: 13px; color: #555; text-align: center; margin-top: 8px; }
+  .tabela { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; margin: 20px 0 8px; }
+  th, td { border-bottom: 1px solid #dde2ea; padding: 7px 10px; text-align: center; }
+  th { color: #1f3a68; border-bottom: 2px solid #1f4e8c; }
+  .fair { background: #eaf1fb; border: 1px solid #c8d8f0; border-radius: 6px; padding: 18px 24px; font-size: 15px; }
+  .fair pre { background: white; }
+  .referencias li { margin-bottom: 10px; }
+  @media (max-width: 700px) {
+    .artigo { margin: 0; padding: 25px 16px; border-radius: 0; border: none; }
+    h1 { font-size: 23px; }
+    h2 { font-size: 19px; }
+    p { text-align: left; }
+    iframe { height: 420px; }
+  }
+</style>
+</head>
+<body>
+<div class="artigo">
+
+<h1>Receita e desempenho esportivo dos clubes no Campeonato Brasileiro Série A (2007-2024)</h1>
+<p class="autores">Marcus Vinicius Rodrigues da Silva, Marcus Filipe dos Santos Mendes</p>
+<p class="info">Bacharelado em Sistemas de Informação - Unilasalle RJ</p>
+<p class="info">Disciplina: Linguagem de Programação (Análise e Visualização de Dados com Python) - 6º Período - 2026/2</p>
+
+<div class="badges">
+  <img src="https://img.shields.io/badge/python-3.13-blue" alt="Python 3.13">
+  <img src="https://img.shields.io/badge/pandas-3.1.1-purple" alt="pandas 3.1.1">
+  <img src="https://img.shields.io/badge/licença-MIT-green" alt="Licença MIT">
+  <img src="https://img.shields.io/badge/dados-CC%20BY--SA%204.0-lightgrey" alt="Dados CC BY-SA 4.0">
+</div>
+<a class="botao" href="https://github.com/marcusvrds07/projeto-final-brasileirao">Ver repositório no GitHub (código e dados)</a>
+
+<div class="resumo">
+  <h2>Resumo</h2>
+  <p>O futebol brasileiro movimenta cada vez mais dinheiro, e uma dúvida comum entre torcedores é se o clube mais rico sempre leva vantagem. Neste trabalho analisamos a relação entre a situação financeira dos clubes e o desempenho deles no Campeonato Brasileiro Série A entre 2007 e 2024. Usamos uma base pública do Kaggle com 302 registros, cada um representando um clube em uma temporada, com receita, resultado financeiro, valor do elenco e estatísticas de campo. Os dados foram tratados em Python com pandas, e a análise foi feita com estatística descritiva, correlação de Spearman e comparação entre grupos, além de gráficos estáticos e interativos. Os resultados mostram que a receita tem forte relação com o desempenho: a correlação entre receita relativa e aproveitamento foi de 0,59, e os clubes da faixa de maior receita ganharam 11 dos 18 títulos, enquanto os da menor faixa não ganharam nenhum. Já o fato de fechar o ano com superávit não mostrou relação com melhora no desempenho do ano seguinte. Concluímos que o dinheiro ajuda muito, mas não garante o título.</p>
+  <p><b>Palavras-chave:</b> futebol; Brasileirão; finanças de clubes; análise de dados; Python.</p>
+</div>
+
+<div class="sumario">
+  <b>Sumário</b>
+  <ol>
+    <li><a href="#introducao">Introdução</a></li>
+    <li><a href="#metodologia">Metodologia e Pipeline de Dados</a></li>
+    <li><a href="#resultados">Resultados e Discussão</a></li>
+    <li><a href="#conclusao">Conclusão</a></li>
+    <li><a href="#fair">Disponibilidade dos Dados e Declaração FAIR</a></li>
+    <li><a href="#referencias">Referências</a></li>
+  </ol>
+</div>
+
+<h2 id="introducao">1. Introdução</h2>
+<p>Nos últimos anos a receita dos clubes brasileiros cresceu muito, com contratos de TV, patrocínios, venda de jogadores e, mais recentemente, a chegada das SAFs. Na base que usamos, a soma das receitas dos clubes foi de cerca de R$ 1,2 bilhão em 2007 para R$ 9,4 bilhões em 2024.</p>
+<p>Ao mesmo tempo, muitos clubes vivem endividados, com a justificativa de que é preciso gastar para ganhar. Entender se o dinheiro realmente se transforma em pontos e se ter as contas equilibradas atrapalha o time em campo é importante para torcedores, dirigentes e para quem estuda gestão esportiva.</p>
+<p>Por isso, este trabalho busca responder duas perguntas de pesquisa:</p>
+<ul>
+  <li><b>RQ1:</b> Clubes com mais receita fazem mais pontos e ganham mais títulos?</li>
+  <li><b>RQ2:</b> Fechar o ano com superávit está ligado a um desempenho melhor em campo?</li>
+</ul>
+
+<h2 id="metodologia">2. Metodologia e Pipeline de Dados</h2>
+<h3>2.1 Fonte dos dados</h3>
+<p>Os dados vêm do conjunto <i>Campeonato BR 2007-2024 Financeiro</i>, publicado no Kaggle por Wil Moreira (2025), que juntou informações financeiras dos clubes e dados do Transfermarkt. O arquivo original é uma planilha Excel com 302 linhas e 18 colunas. Cada linha representa <b>um clube em uma temporada</b>. A receita e o resultado financeiro estão em milhões de reais, e o valor do elenco em milhões de euros. A base não tem todos os 20 clubes de cada ano: aparecem de 16 a 18 por temporada.</p>
+
+<h3>2.2 Tratamento dos dados</h3>
+<p>Todo o tratamento está no arquivo <code>src/etl.py</code>. Os passos foram:</p>
+<ol>
+  <li><b>Leitura:</b> leitura da planilha com <code>pandas.read_excel</code>. Se o arquivo não existir, o script baixa direto do Kaggle.</li>
+  <li><b>Padronização:</b> renomeamos as colunas para letras minúsculas e sem acento (ex.: <code>Posição</code> virou <code>posicao</code>) e convertemos os tipos: números inteiros, decimais e o campo de campeão para verdadeiro/falso.</li>
+  <li><b>Valores ausentes e duplicados:</b> a base não tinha nulos nem linhas repetidas. Mesmo assim, deixamos o script preparado para remover linhas sem informação principal e preencher receita vazia com a mediana do ano.</li>
+  <li><b>Verificação de inconsistências:</b> conferimos se cada clube jogou 38 partidas e se os pontos batiam com 3 x vitórias + empates. Encontramos três casos, todos reais: Atlético-MG e Chapecoense em 2016 jogaram 37 partidas (o último jogo foi cancelado após o acidente aéreo da Chapecoense), e o Flamengo de 2013 perdeu 4 pontos no STJD. Esses registros foram mantidos e apenas marcados.</li>
+  <li><b>Novas métricas:</b> criamos o aproveitamento (para não prejudicar quem jogou 37 partidas), a receita relativa (receita dividida pela mediana do ano), o ranking de receita no ano, a faixa de receita (quartis dentro de cada ano), a indicação de superávit e a variação do aproveitamento em relação ao ano anterior.</li>
+  <li><b>Salvamento:</b> os dados tratados foram salvos em <code>.parquet</code> e <code>.csv.gz</code>.</li>
+</ol>
+<p>Usamos a <b>receita relativa</b> porque os valores não estão corrigidos pela inflação. Comparar R$ 100 milhões de 2007 com R$ 100 milhões de 2024 não faz sentido, mas comparar cada clube com a mediana do seu próprio ano faz.</p>
+
+<pre><code>def verificar_inconsistencias(df):
+    df["jogos"] = df["vitorias"] + df["empates"] + df["derrotas"]
+    df["jogos_diferente_de_38"] = df["jogos"] != 38
+    df["pontos_nao_batem"] = df["pontos"] != 3 * df["vitorias"] + df["empates"]
+    return df</code></pre>
+<figcaption>Código 1 - Verificação das regras do campeonato</figcaption>
+
+<pre><code>df["aproveitamento"] = (df["pontos"] / (df["jogos"] * 3) * 100).round(1)
+df["receita_relativa"] = (df["receita"] / df.groupby("ano")["receita"].transform("median")).round(2)
+df["teve_superavit"] = df["resultado_financeiro"] > 0
+
+df.to_parquet(PASTA_PROCESSADOS / "brasileirao_tratado.parquet", index=False)
+df.to_csv(PASTA_PROCESSADOS / "brasileirao_tratado.csv.gz", index=False, compression="gzip")</code></pre>
+<figcaption>Código 2 - Criação das métricas e salvamento dos dados tratados</figcaption>
+
+<h3>2.3 Análise</h3>
+<p>A análise foi feita no notebook <code>notebooks/analise_exploratoria.ipynb</code>. Calculamos média, mediana, desvio padrão e coeficiente de variação, identificamos outliers pela regra do intervalo interquartil (1,5 x IIQ) e usamos a correlação de Spearman, que funciona bem quando os dados são assimétricos, como a receita. Os gráficos foram feitos com Matplotlib (estáticos) e Plotly (interativos).</p>
+
+<h2 id="resultados">3. Resultados e Discussão</h2>
+<h3>3.1 Visão geral dos dados</h3>
+<p>A receita é a variável com maior dispersão: a média é de R$ 252 milhões, mas o desvio padrão é de R$ 240 milhões (coeficiente de variação de 0,95). Isso mostra uma diferença grande entre clubes ricos e pobres. Os 4 clubes de maior receita concentram entre 39% e 53% de toda a receita da base em cada ano. Pela regra do IIQ, os maiores outliers de receita foram o São Paulo em 2007 e o Flamengo em 2022 e 2023, com receita mais de 3 vezes maior que a mediana do ano. No resultado financeiro, o maior outlier foi o Cruzeiro de 2019, com déficit de R$ 394 milhões, no mesmo ano em que foi rebaixado.</p>
+<p>A Figura 1 mostra as correlações entre as principais variáveis. O aproveitamento tem relação forte com gols feitos (0,75) e gols sofridos (-0,64). Entre as variáveis financeiras, a receita relativa (0,59) se destaca, seguida do valor do elenco (0,41). A margem financeira praticamente não tem relação com o aproveitamento (0,05), e a idade média do elenco também não (-0,05).</p>
+<figure>
+  <img src="assets/correlacao.png" alt="Mapa de calor com a correlação de Spearman entre as variáveis">
+  <figcaption>Figura 1 - Correlação de Spearman entre as variáveis (gráfico estático)</figcaption>
+</figure>
+
+<h3>3.2 RQ1 - Clubes com mais receita fazem mais pontos?</h3>
+<p>Sim. A Figura 2 mostra que, quanto maior a receita relativa, maior tende a ser o aproveitamento. Os campeões (em laranja) estão quase todos do lado direito do gráfico. Mesmo assim, há clubes ricos com campanhas ruins, o que mostra que o dinheiro não explica tudo.</p>
+<figure>
+  <iframe scrolling="no" src="assets/receita_aproveitamento.html" title="Gráfico interativo de receita relativa por aproveitamento" loading="lazy"></iframe>
+  <figcaption>Figura 2 - Receita relativa x aproveitamento. Passe o mouse sobre os pontos para ver o clube e o ano (gráfico interativo)</figcaption>
+</figure>
+<p>Para facilitar a leitura, dividimos os clubes de cada ano em quatro faixas de receita. A Tabela 1 e a Figura 3 mostram o resultado.</p>
+<div class="tabela">
+<table>
+  <tr><th>Faixa de receita</th><th>Participações</th><th>Aproveitamento médio</th><th>% no G4</th><th>% rebaixados</th><th>Títulos</th></tr>
+  <tr><td>1 (menor)</td><td>81</td><td>39,4%</td><td>1,2%</td><td>30,9%</td><td>0</td></tr>
+  <tr><td>2</td><td>72</td><td>44,0%</td><td>11,1%</td><td>22,2%</td><td>2</td></tr>
+  <tr><td>3</td><td>72</td><td>52,7%</td><td>41,7%</td><td>0,0%</td><td>5</td></tr>
+  <tr><td>4 (maior)</td><td>77</td><td>53,1%</td><td>41,6%</td><td>3,9%</td><td>11</td></tr>
+</table>
+</div>
+<figcaption>Tabela 1 - Desempenho por faixa de receita dentro de cada temporada</figcaption>
+<figure>
+  <img src="assets/faixas_receita.png" alt="Gráfico de barras com percentual de G4 e de rebaixamento por faixa de receita">
+  <figcaption>Figura 3 - Percentual de clubes no G4 e rebaixados por faixa de receita (gráfico estático)</figcaption>
+</figure>
+<p>Clubes da menor faixa de receita quase nunca chegaram ao G4 (1,2%) e foram rebaixados em quase um terço das vezes. Um ponto interessante é que as faixas 3 e 4 têm aproveitamento quase igual. Ou seja, ter bastante dinheiro protege contra o rebaixamento, mas entre os clubes mais ricos a diferença aparece principalmente nos títulos: 11 contra 5.</p>
+<p>A Figura 4 mostra a posição de cada campeão no ranking de receita do ano. Em 9 das 18 temporadas o campeão estava entre as 3 maiores receitas, e em 14 estava entre as 5 maiores. As exceções foram o Fluminense em 2010 (11ª receita) e 2012 (9ª) e o Cruzeiro em 2013 (8ª).</p>
+<figure>
+  <iframe scrolling="no" src="assets/ranking_campeoes.html" title="Gráfico interativo da posição do campeão no ranking de receita" loading="lazy"></iframe>
+  <figcaption>Figura 4 - Posição do campeão no ranking de receita de cada ano. Barra menor = clube mais rico (gráfico interativo)</figcaption>
+</figure>
+
+<h3>3.3 RQ2 - Ter superávit está ligado a um desempenho melhor?</h3>
+<p>Não encontramos essa relação. No mesmo ano, os clubes com superávit tiveram aproveitamento médio de 48,5%, contra 46,2% dos clubes com déficit, uma diferença pequena. A correlação entre a margem financeira e o aproveitamento foi de apenas 0,05.</p>
+<p>Também comparamos o que acontece no ano seguinte. Considerando 237 casos de clubes que jogaram dois anos seguidos na base, quem teve superávit variou em média -1,8 ponto percentual no aproveitamento, e quem teve déficit variou -1,6. Os dois grupos ficaram praticamente iguais, como mostra a Figura 5.</p>
+<figure>
+  <iframe scrolling="no" src="assets/superavit_variacao.html" title="Gráfico interativo da variação do aproveitamento por situação financeira" loading="lazy"></iframe>
+  <figcaption>Figura 5 - Variação do aproveitamento de um ano para o outro, separada por superávit ou déficit no ano anterior (gráfico interativo)</figcaption>
+</figure>
+<p>O que mais explica a variação de um ano para o outro é a própria campanha anterior: quem foi muito bem tende a cair um pouco, e quem foi mal tende a melhorar (correlação de -0,41). Uma explicação possível é que o superávit pode vir tanto de uma boa gestão quanto da venda de jogadores importantes, e o déficit pode vir de investimento no time ou de má gestão. Por isso, olhar só para o resultado do ano não diz muito sobre o desempenho em campo.</p>
+
+<h2 id="conclusao">4. Conclusão</h2>
+<p>Os resultados mostram que a receita tem uma relação forte com o desempenho no Brasileirão. Clubes com pouca receita quase nunca chegam ao G4 e nunca foram campeões no período, enquanto os mais ricos ficaram com 11 dos 18 títulos. Por outro lado, fechar o ano com superávit não mostrou ligação com resultados melhores, nem no mesmo ano nem no seguinte. Ou seja, o que parece fazer diferença é o tamanho da receita, e não o equilíbrio das contas no curto prazo.</p>
+<p><b>Limitações:</b> a base não tem todos os clubes de cada ano; os valores não foram corrigidos pela inflação; a receita está em reais e o valor do elenco em euros; e a análise mostra relações entre as variáveis, mas não prova causa e efeito. Também não tivemos acesso a dados como folha salarial e dívida total.</p>
+<p><b>Trabalhos futuros:</b> completar a base com os clubes que faltam, corrigir os valores pelo IPCA, incluir a folha salarial e analisar o efeito das SAFs a partir de 2021.</p>
+
+<h2 id="fair">5. Disponibilidade dos Dados e Declaração FAIR</h2>
+<div class="fair">
+  <b>Declaração de aderência FAIR</b>
+  <ul>
+    <li><b>Findable (Localizável):</b> o README do repositório tem resumo, palavras-chave, autores, instituição e o link da fonte original dos dados.</li>
+    <li><b>Accessible (Acessível):</b> o repositório e este artigo são públicos, e o script baixa os dados sem precisar de login.</li>
+    <li><b>Interoperable (Interoperável):</b> os dados tratados estão em Parquet e CSV.gz, e cada coluna está explicada em <code>data/data_dictionary.md</code>.</li>
+    <li><b>Reusable (Reutilizável):</b> o código está sob licença MIT, o texto sob CC BY 4.0, os dados sob CC BY-SA 4.0 (mesma licença da base original), e as versões das bibliotecas estão fixadas em <code>requirements.txt</code>.</li>
+  </ul>
+  <b>Como reproduzir:</b>
+<pre><code>git clone https://github.com/marcusvrds07/projeto-final-brasileirao.git
+cd projeto-final-brasileirao
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+python -m src.etl</code></pre>
+  <p>No Linux/Mac, use <code>source .venv/bin/activate</code> para ativar o ambiente. Depois, execute o notebook <code>notebooks/analise_exploratoria.ipynb</code> para gerar as tabelas e os gráficos.</p>
+</div>
+
+<h2 id="referencias">6. Referências</h2>
+<ol class="referencias">
+  <li>HUNTER, J. D. Matplotlib: a 2D graphics environment. <i>Computing in Science &amp; Engineering</i>, v. 9, n. 3, p. 90-95, 2007.</li>
+  <li>MCKINNEY, W. <i>Python for data analysis</i>. 3. ed. Sebastopol: O'Reilly Media, 2022.</li>
+  <li>MOREIRA, W. <i>Campeonato BR 2007-2024 Financeiro</i>. Kaggle, 2025. Disponível em: &lt;https://www.kaggle.com/datasets/wilgomoreira/campeonato-br-2007-2024-financeiro&gt;. Acesso em: 15 nov. 2026.</li>
+  <li>PANDAS DEVELOPMENT TEAM. <i>pandas documentation</i>. Disponível em: &lt;https://pandas.pydata.org/docs/&gt;. Acesso em: 15 nov. 2026.</li>
+  <li>PLOTLY TECHNOLOGIES INC. <i>Plotly Python graphing library</i>. Disponível em: &lt;https://plotly.com/python/&gt;. Acesso em: 15 nov. 2026.</li>
+  <li>WILKINSON, M. D. et al. The FAIR Guiding Principles for scientific data management and stewardship. <i>Scientific Data</i>, v. 3, 160018, 2016.</li>
+</ol>
+
+</div>
+</body>
+</html>
