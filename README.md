@@ -8,8 +8,8 @@
 **Autores:** Marcus Vinicius Rodrigues da Silva e Marcus Filipe dos Santos Mendes
 **Instituição:** Unilasalle RJ
 **Curso:** Bacharelado em Sistemas de Informação - 6º Período
-**Disciplina:** Linguagem de Programação (Análise e Visualização de Dados com Python)
-**Semestre:** 2026/2
+**Disciplina:** Linguagem de Programação
+**Professor:** Alexandre Louzada
 
 **Artigo publicado:** https://marcusvrds07.github.io/projeto-final-brasileirao/
 
